@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/127e48f3e6.js" crossorigin="anonymous"></script><!-- Icon link -->
+</head>
+
+<body>
+    <!-- HEADER SECTION -->
+    <div id="header" ;>
+        <div class="container">
+            <nav>
+                <img src="image/logo.png" class="logo">
+                <ul id="sidemenu()">
+                    <li><a href="#header">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#portfolio">Portfolio</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <i class="fas fa-times" onclick="closemenu()"></i>
+                </ul> <!-- These 2 icons should be visible only when this is opened in small screen, else hidden -->
+                <i class="fas fa-bars" onclick="openmenu()"></i>
+            </nav>
+            <div class="header-text">
+                <p>UX/UI Designer</p>
+                <h1>Hi,This is <span>Nayanika</span></h1>
+            </div>
+        </div>
+    </div>
+    <!-- ABOUT SECTION -->
+    <div id="about">
+        <div class="container">
+            <div class="row"> <!-- now we create two columns in this: -->
+                <div class="col1"> <!-- add image in left col/side -->
+                    <img src="image/user.jpg" alt="">
+                </div>
+                <div class="col2"> <!-- add text on right side -->
+                    <h1 class="subtext">About Me</h1>
+                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been
+                        the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley
+                        of type and scrambled it to make a type specimen book. It has survived not only five centuries,
+                        but also the leap into electronic typesetting, remaining essentially unchanged. It was
+                        popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages,
+                        and more recently with desktop publishing software like Aldus PageMaker including versions of
+                        Lorem Ipsum </p>
+                    <!-- Now we need to add three tabs with diff contents:skills,experience and education -->
+                    <div class="tabtitles">
+                        <p class="tablink activelink" onclick="opentab('skills')">Skills</p>
+                        <p class="tablink" onclick="opentab('experience')">Experience</p>
+                        <p class="tablink" onclick="opentab('education')">Education</p>
+                        <!-- Now we need to align them in "style" -->
+                    </div>
+                    <!-- Now we add contents to these tabs (SKILLS) -->
+                    <div class="tabcontents activetab" id="skills">
+                        <ul>
+                            <li><span>UI?UX</span><br>Desinging web interfaces</li>
+                            <li><span>UI?UX</span><br>Desinging web interfaces</li>
+                            <li><span>UI?UX</span><br>Desinging web interfaces</li>
+                        </ul>
+                    </div>
+                    <!-- Experience -->
+                    <div class="tabcontents" id="experience">
+                        <ul>
+                            <li><span>ExpUI?UX</span><br>Desinging web interfaces</li>
+                            <li><span>UI?UX</span><br>Desinging web interfaces</li>
+                            <li><span>UI?UX</span><br>Desinging web interfaces</li>
+                        </ul>
+                    </div>
+                    <!-- Education -->
+                    <div class="tabcontents" id="education">
+                        <ul>
+                            <li><span>EduUI?UX</span><br>Desinging web interfaces</li>
+                            <li><span>UI?UX</span><br>Desinging web interfaces</li>
+                            <li><span>UI?UX</span><br>Desinging web interfaces</li>
+                        </ul>
+                    </div>
+                    <!-- Now all these tabs contents will be visible vertically so we need to
+                    show one at a time and hide other tabs if not clicked to view contents of,
+                    so we make display of these tabs as "none" in style  -->
+                </div>
+            </div>
+        </div>
+    </div><!-- 1. But the text "about me" comes below the image i.e. on left itself so style it to make it "right"-->
+
+    <!--3. SERVICES SECTION -->
+    <div id="services">
+        <div class="container">
+            <h1 class="subtext">My services</h1>
+            <!-- We add services list in 3 cols:-->
+            <div class="servicelist">
+                <!-- Now "My services is" visible below the img (next to about me) so we do css now -->
+                <div>
+                    <i class="fa-solid fa-code"></i> <!-- Code icon  -->
+                    <!-- Contents in "My services": -->
+                    <h2>WB</h2>
+                    <p> 
+                        
+                        jckdhnsikhid jkcbjdjsgdnjkldhbejhdc sdkhjvdcnd bcjfdv dbjcdfm vjfkhc
+                    </p>
+                    <a href="#">Learn more</a>
+                </div>
+                <div>
+                    <i class="fa-solid fa-crop"></i> <!-- Crop icon -->
+                    <h2>IHB</h2>
+                    <p>
+                        mcdnc djkbchsd nchdskdvb kfvhbfdvvnxbvjkdfbjc jdjkfvhjckdhnsikhid jkcbjdkhc
+                    </p>
+                    <a href="#">Learn more</a>
+                </div>
+                <div>
+                    <i class="fa-brands fa-app-store-ios"></i> <!-- app icon -->
+                    <h2>HJKH</h2>
+                    <p>
+                        sbc dlajojfbjsdcjhdfkjdfdjhvb dkhkbfdhl;smcn dn bjkdbhjckdhnsikhid jkcbjdkhc
+                    </p>
+                    <a href="#">Learn more</a>
+                </div>
+                <!-- Now all contents are visible horizontally i.e. Services in 3 cols -->
+            </div>
+        </div>
+    </div>
+
+    <!--4. PORTFOLIO SECTION -->
+    <div id="portfolio">
+        <div class="container">
+            <h1 class="subtext">My Work</h1> <!-- My work at the end of the page(below Services) -->
+            <div class="worklist"> <!-- Create a list of work -->
+                <div class="work">
+                    <img src="image/work-1.png">
+                    <div class="layer">
+                        <h3>
+                            Social app
+                        </h3>
+                        <p>
+                            jbdwjchjdelwmsjhjdhdewndkbnerj nfrjjfnbjdnhjerk
+                        </p>
+                        <a href="#"><i class="fa-solid fa-link"></i></a>
+                    </div>
+                </div>
+                <div class="work">
+                    <img src="image/work-2.png">
+                    <div class="layer">
+                        <h3>
+                            BSocial app
+                        </h3>
+                        <p>
+                            dedwdjsbdwjchjdelwmsjhjdhdewndkbnerj nfrjjfnbjdnhjerk
+                        </p>
+                        <a href="#"><i class="fa-solid fa-link"></i></a>
+                    </div>
+                </div>
+                <div class="work">
+                    <img src="image/work-3.png">
+                    <div class="layer">
+                        <h3>
+                            CSocial app
+                        </h3>
+                        <p>
+                            ljowodnjbdwjchjdelwmsjhjdhdewndkbnerj nfrjjfnbjdnhjerk
+                        </p>
+                        <a href="#"><i class="fa-solid fa-link"></i></a>
+                    </div>
+                </div>
+                <!-- 3 images visible one below the other. We need them in a grid using css -->
+            </div> <!-- Div worklist closes here -->
+            <!-- Creating a button below the portfolio images: -->
+            <a href="#" class="btn">See More</a> <!-- Decor it in css -->
+        </div>
+    </div>
+
+    <!-- 5.CONTACT SECTION -->
+    <div id="contact">
+        <div class="container"> <!-- In this container,we create 2 cols:Contact info & contact form -->
+            <div class="row">
+                <div class="Lcon">
+                    <h1 class="subtext">Contact Me</h1>
+                    <p><i class="fa-sharp fa-solid fa-paper-plane"></i>contact@ex.com</p>
+                    <p><i class="fa-solid fa-square-phone"></i>7887878660</p>
+                    <div class="socialicons"> <!-- Social media icons -->
+                        <!--SOCIAL MEDIA PROFILE URLS IN ""--> <a href=""><i class="fa-brands fa-facebook"></i></a>
+                        <a href=""><i class="fa-brands fa-instagram"></i></a>
+                        <a href=""><i class="fa-brands fa-twitter-square"></i></a>
+                        <a href=""><i class="fa-brands fa-linkedin"></i></a>
+                    </div>
+                    <a href="image/my-cv.pdf" download class="btn btn2">Download CV</a> <!-- Button to download CV -->
+                    <!-- download-popup downloading  -->
+                </div>
+                <div class="Rcon">
+                    
+                    <form name="submit-to-google-sheet"> <!--Copied from github code below to recieve info on google sheet-->
+                        <input type="text" name="Name" placeholder="Your Name" required>
+                        <input type="email" name="Email" placeholder="Your Email" required>
+                        <textarea name="Message" rows="6" placeholder="Your Message"></textarea>
+                        <button type="submit" class="btn btn2">Submit</button>
+                    </form>
+                    <span id="msg"></span> <!--It displays a message below the contact me submit button-->
+                </div>
+            </div>
+
+        </div>
+        <!-- Copyright -->
+        <div id="copyright">
+            <p>Copyright @ Nayanika. Made with <i class="fa-solid fa-heart"></i></p>
+        </div>
+    </div>
+
+    <!-- 2.Making var and defining opentab() fn in script: -->
+    <script>
+        var tab_link = document.getElementsByClassName("tablink");
+        var tab_contents = document.getElementsByClassName("tabcontents");
+        function opentab(tabname) { <!-- Fn Definition-->
+            for (tabL of tab_link) {
+                tabL.classList.remove("activelink");
+            }
+            for (tabC of tab_contents) {
+                tabC.classList.remove("activetab");
+            }
+            //The moment cursor clicks any of the 3 tabs, underline below skills & contents below it will be removed
+            //Next we need to display contents of whichever tab(3) is clicked and put underline below that tab:
+
+            event.currentTarget.classList.add("activelink");//Puts underline/color below whichever tab is clicked
+
+            document.getElementById(tabname).classList.add("activetab"); //if we click on education, "document.getElementById(tabname)"will pass it in fn defintion and pass education instead of tab;
+            //and the rest of the code adds specific contents to be viewed when resp. tab is clicked
+        }
+    </script>
+    <script> //for list menu on small screen
+        var sidemenu= document.getElementById("sidemenu");
+        function openmenu(){
+            sidemenu.style.right="0"; //hidden until clicked on menu bar
+        }
+        function closemenu(){
+            sidemenu.style.right="-200px";//it goes to the right/hides when cross is clicked
+        }
+    </script>
+    <script> //For contact form to recieve info in google spreadsheet
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbyYCbT2oiUcGjP4kT_mZR9mRtIrhtRZv6s1pGDukUkJEGK71uR14Vwo3V-DxPPf9Gne8g/exec'
+        const form = document.forms['submit-to-google-sheet']
+        const msg= document.getElementById("msg") //added this command to pop up message when submit is clicked
+      
+        form.addEventListener('submit', e => {
+          e.preventDefault()
+          fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+            //.then(response => console.log('Success!', response))
+            //We dont use the command above and edit it as follows:
+            .then(response => {
+                msg.innerHTML="Message sent successfully!"
+                setTimeout(function(){ //transition time of the message
+                    msg.innerHTML=""
+                },5000) //5000 milli sec i.e. after 5 seconds message will be gone and we reset the input field in the form:
+                form.reset()
+            })
+            .catch(error => console.error('Error!', error.message))
+        })
+      </script>
+</body>
+
+</html>

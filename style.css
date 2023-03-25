@@ -1,0 +1,438 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins',sans-serif;
+    box-sizing: border-box;
+}
+html{ /*Automatically scrolls from menu above to the desired space/area of the page when you click them*/
+    scroll-behavior: smooth;
+}
+body{
+    
+    background: #080808; /* body background is dark  */
+    color: #fff;
+}
+
+                       /* HEADER SECTION */
+#header{ /* image details  */
+    width: 100%;
+    height: 100vh;
+    background-image: url(image/bg.jpg);
+    background-size:cover;
+    background-position: center;
+
+}
+.container{
+    padding: 10px 10%; /* creates space before logo(kevin) and links/components below */
+}
+nav{ /* alignment of menu links:goes to the right side (vertically) and logo on left */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.logo{
+    width: 140px; /* size of logo */
+}
+nav ul li{ /* alignment of menu list in right size horizontally */
+    display: inline-block;
+    list-style: none;
+    margin: 10px 20px;
+}
+nav ul li a{  /* remove underlines from list links and add white colour */
+color:#fff;
+text-decoration: none;
+font-size: 18px; /* white links horizonatally aligned on right */
+position: relative;
+}
+/* now we have to make hover effects on these list elements to make them links */
+nav ul li a::after{
+    content: '';
+    width: 0; /* hidden lines now */
+    height: 3px;
+    background: #ff004f;
+    position: absolute;
+    left:0;
+    bottom: -6px;
+    transition: 0.5s; /* time in which the lines fades as cursor moves away */
+/*we can see coloured lines below them so to hide them we make width 0 here(earlier was 100%)*/
+}
+nav ul li a:hover::after{
+    width: 100%; /* It will be visible when width is 100% */
+}
+/* next we add some text and title */
+.header-text{  /* size and margins of both intro headings */
+    margin-top: 20%;
+    font-size: 30px;
+}
+.header-text h1{/* specifically for "h1" heading */
+    font-size: 60px;
+    margin-top: 20px;
+}
+.header-text h1 span{ /* colour change in name */
+    color:#ff004f ;
+}
+
+                        /* ABOUT SECTION */
+#about{
+    padding: 80px 0; /*80 for T/B and 0 for L/R i.e. its still on left below the image */
+    color: #ababab; /* "about me" text color */
+}
+.row{
+    display: flex;/* to get the contents side by side */
+    justify-content: space-between;
+    flex-wrap: wrap;
+    /* Now we can see image on L and text on Right */
+}
+.col1{
+    flex-basis: 35%; /* width of L column i.e. image space take up w.r.t col2 */
+}
+.col1 img{
+    width:100%; /* img size */
+    border-radius: 15px; /* corner of image becomes rounded */
+}
+.col2{
+    flex-basis: 60%; /* How close text will be to img/Col1 */
+}
+/*Now we have to change color and font of text in col2 so we make class "subtext" and do changes */
+.subtext{
+    font-size: 50px;
+    font-weight: 600; /* stroke width */
+    color:#fff;
+}
+/* Now we have to add description in col2 below "about me" */
+.tabtitles{
+    display:flex;
+    margin:20px 0 40px /* 20 from Top, o from L/R , 40 from Bottom */
+    /* Just makes the 3 tabs horizontal with no spaces in b/w */
+}
+.tablink{
+    margin-right:50px; /* creates spaces b/w tabs */
+    font-size: 18px;
+    font-weight: 500;
+    cursor: pointer; /* symbol of cursor while hovering the tabs */
+    position: relative;
+    /* Now the tabs are hor. aligned with spaces */
+}
+/* To put underline below "skills".It shows up in others too whenever they are hovered */
+.tablink::after{
+    content: '';
+    width: 0; /* hidden atm */
+    height: 3px;
+    background:#ff004f ;
+    position: absolute;
+    left: 0;
+    bottom: -8px;
+    transition: 0.5s;
+}
+/* To make only skills underlined, we need to add one more class name "activelink" in skills 
+and make width 100% there for underline to show up*/
+.tablink.activelink::after{
+    width: 50%; /* halfway underline in skills and still invisible in other 2 tabs */
+}
+
+/* TAB CONTENTS */
+/* Styling "skills" contents lists  */
+.tabcontents ul li{
+    list-style: none;
+    margin: 10px 0px;
+}
+.tabcontents ul li span{
+    font-size: 14px;
+    color: #ff004f;
+}
+/* Now we have to write contents for experience and education in html file*/
+/* All tabs contents display vertically each after the other so we.. */
+/* Hide contents of those tabs which r not clicked: */
+.tabcontents {
+    display:none; /* Hides contents of all tabs. No content visible */
+}
+/* So we have to display contents of 1st one(skills): Add one more class name "active tab" in skills content tab & create its css to display it: */
+.tabcontents.activetab{
+    display:block;
+    /* It shows skills contents only and hide others */
+}
+/* Now, to display contents whichever of the 3 tabs is hovered over,Create onclick with fn in html
+And then create ids of them in their resp. contents tabs
+Then in script in html, we make var. "tab_link" & "tab_contents and define fn opentab()*/
+
+                          /* SERVICES SECTION */
+#services{
+    padding: 30px 0; /* 30 for T/B and 0 for L/R */
+}
+.servicelist{
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+    grid-gap: 40px;
+    margin-top: 50px;
+}
+.servicelist div{ /* Make changes to all service lists together */
+    background: #262626;
+    padding: 40px;
+    font-size: 13px;
+    font-weight:300 ;
+    border-radius: 10px;
+    transition: background 0.5s, transform 0.5s; /* Would move up and get back smoothly */
+}
+.servicelist div i{ /* change icon sizes */
+font-size: 50px;
+margin-bottom: 30px;
+}
+.servicelist div h2{ /* changes in services titles */
+font-size: 30px;
+font-weight: 500;
+margin-bottom: 15px; 
+}
+.servicelist div a{ /* decorate links(learn more) */
+text-decoration:none;
+color: #fff;
+font-size: 12px;
+margin-top:20px ;
+display: inline-block;
+}
+/* Now lets create a hover effect over these services list: */
+.servicelist div:hover{
+    background: #ff004f; /* It should change color when hovered over */
+    transform: translateY(-10px); /* Service box would move up */
+}
+
+                      /* PORTFOLIO SECTION */
+#portfolio{
+padding: 50px 0; /* More space around "My work" */
+}
+.worklist{
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+    grid-gap: 40px;
+    margin-top: 50px;
+    /* All Images kind of overlap */
+}
+.work{
+    border-radius: 10px;
+    position: relative;
+    overflow: hidden;
+    /* Create a space and border around images */
+}
+.work img{
+    width: 100%;
+    border-radius: 10px;
+    display: block;
+    /* Proper grid layout of images */
+    transition: transform 0.5s; /* Smooth zoom in of images */
+}
+/* Next we want to show some info over these images:text and link(with icon) so we create a class "layer" and provide info in html */
+
+/*Next, we change text alignment and make its pos absolute so text hovers over the images: */
+.layer{  /* All images and text over them updates  */
+    width: 100%;
+    height: 0; /* Content over image gets hidden */
+    background: linear-gradient(rgba(0,0,0,0.6),#ff004f);
+    border-radius: 10px;
+    position: absolute;
+    left:0; 
+    bottom: 0;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column ;
+    padding: 0 40px;
+    text-align: center;
+    font-size: 14px;
+    transition: height 0.5s;  /* Gradient's height smoothly shows up on image */
+}
+.layer h3{ /* Font of main heading in images */
+    font-weight: 500;
+    margin-bottom: 20px;
+}
+.layer a{
+    margin-top: 20px;
+    color: #ff004f;
+    text-decoration: none;
+    font-size: 18px;
+    line-height: 60px;
+    background: #fff;
+    width: 60px;
+    height: 60px;
+    border-radius: 50px; /* Creates a circle around icons */
+    text-align: center;
+}
+
+/* Images should zoom in when cursor moves over them:*/
+.work:hover img{
+ transform: scale(1.1); 
+}
+
+/* Now we want to view contents over image when its hovered over */
+.work:hover .layer{ /* Gradient and contents show over image when cursor is on it */
+    height: 100%;
+}
+.btn{  /* button */
+    display: block;
+    margin: 50px auto;
+    width: fit-content;
+    border: 1px solid #ff004f;
+    padding: 14px 50px; /* spacing inside button */
+    border-radius: 6px;
+    text-decoration: none; /* removes underline below text"see more" */
+    color: #fff;
+    transition: background 0.5s;
+}
+.btn:hover{
+    background: #ff004f;
+}
+
+                           /* CONTACT SECTION */
+.Lcon{
+    flex-basis: 35%;
+}
+.Lcon p{
+    margin-top: 30px;
+}
+.Lcon p i{
+    color: #ff004f;
+    margin-right: 15px;
+    font-size: 25px ;
+}
+.socialicons{
+    margin-top: 30px;
+}
+.socialicons a{
+text-decoration: none;
+font-size: 30px;
+margin-right: 15px;
+color: #ababab;
+display: inline-block;
+transition: transform 0.5s;
+}
+.socialicons a:hover{ /* icons move up and change color when hovered */
+    color: #ff004f;
+    transform: translateY(-5px);
+}
+.btn.btn2{
+    display: flow-root;
+    background: #ff004f;
+}
+.Rcon{
+    flex-basis: 60%;
+}
+.Rcon form{
+    width: 100%;
+}
+form input,form textarea{ /*  create all inputs in one textarea box */
+    width: 100%;
+    border: 0;
+    outline: none;
+    background: #262626;
+    padding: 15px;
+    margin: 15px 0; /* creates spaces in between previously merged "inputs" */
+    color: #fff;
+    font-size: 18px;
+    border-radius: 6px;
+}
+/* To add cursor type & create balanced space between submit button and this entire text field: */
+form btn2{
+    padding: 14px 60px;
+    font-size: 18px;
+    margin-top: 20px;
+    cursor: pointer;
+}
+#copyright{
+    width: 100%;
+    text-align: center;
+    padding: 25px 0;
+    background: #262626;
+    font-weight: 300;
+    margin-top: 20px;
+}
+#copyright i{ /* Change heart color to red in coypright text */
+    color: #ff004f;
+}
+
+                             /* CSS FOR SMALL SCREENS */
+nav .fas{
+    display: none; /*Header Icons menu and cross becomes hidden but we hide only when its on bigger screen */
+}               
+            /*CSS for small screens*/              
+@media only screen and(max-width: 600px){
+    #header{
+        background-image: url(image/phonebg.jpg);/* We change header image */
+    }  
+    .header-text{
+        margin-top: 100%;
+        font-size: 16px;
+    }
+    .header-text h1{
+        font-size: 30px;
+    }
+    nav .fas{
+        display: block;
+        font-size: 25px;
+    }  
+    nav ul{ /*Menu list shifts to the right side of the small screen*/
+        background: #ff004f;
+        position: fixed;
+        top:0;
+        right: -200px; /*(Initially it was 0px) This will go towards right of width and is hidden when we dont ask for the menu(inc. x icon).
+        It should be displayed only when you click on menu bar. To make click functionality on bar icon: z-index:2 and
+        add onbutton functions in these two icons in html script*/
+        width: 200px;
+        height: 100vh;
+        padding-top: 50px;
+        z-index: 2;
+        transition: right 0.5s;  /*for smooth open and close */
+    }
+    nav ul li{ /*  List items arranges vertically*/
+        display: block;
+        margin: 25px;
+    }
+    nav ul.fas{ /*x icon comes on top of this list*/
+        position: absolute;
+        top: 25px;
+        left: 25px;
+        cursor: pointer;
+    }  /* for about section*/
+    .subtext{ /*Decreases font size of about me section descp.*/
+        font-size: 40px;
+    }
+    .col1,.col2{ /*image size increases*/
+        flex-basis: 100%;
+    }
+    .col1{ /*for space b/w image and text(below the image)*/
+        margin-bottom: 30px;
+    }
+    .col2{/*decreases font size of col2*/
+        font-size: 14px;
+    }
+    .tablink{ /*Reduce space b/w skills,edu. and exp. and also decrease their font sizes*/
+       font-size: 16px;
+       margin-right: 20px;
+    }
+    /*For contact section*/
+    .Lcon,.Rcon{
+        flex-basis: 100%;
+    }
+    .copyright{
+        font-size: 16px; /*reducing size for small screen*/
+    }
+}
+/*Now,we just put click functionalities in above menu so it scrolls through the desired area when clicked(in html and html css file{})*/
+
+/*Next,we have to make contact form working whenever people enter any data and
+you will receive info on a google sheet(say, "Contact form") when u submit the info.
+1.Manually write column names in the sheet.
+2.Extensions -> Apps Script
+3.Rename project as "Contact form"
+4.Paste github fresh code and save it and run it. 
+5.After execution,deploy ->new deployment->setting icon->web app. Write contact form in descp., make it visible to "anyone" and deploy it.
+6. You get a link. Meanwhile, paste another github script in html. Copy that link and paste in 'scriptURL' placeholder in your code.
+7. Change form name too in html.
+After doing all these steps, we can see the info in sheet after clicking submit button but 
+text boxes and submit button doesnt get refreshed on the website.Only data is stored and saved.
+So we use span in contact to print message"Hello" below submit button and do its styling in #span:*/
+
+#msg{
+    color: #61b752;
+    margin-top: -40px;
+    display: block;
+}
